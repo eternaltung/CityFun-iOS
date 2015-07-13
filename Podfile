@@ -4,5 +4,6 @@ target 'CityFun' do
 pod 'AFNetworking'
 pod 'JSONModel'
 pod 'MBProgressHUD'
+pod 'GoogleMaps'
 end
 
