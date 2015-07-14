@@ -19,7 +19,7 @@
 {
     NSRange range = [[file lowercaseString] rangeOfString:@".jpg"];
     if (range.length == 0) {
-        range = [file rangeOfString:@".png"];
+        range = [[file lowercaseString] rangeOfString:@".png"];
     }
     _file = [file substringToIndex:range.location + range.length];
 }
