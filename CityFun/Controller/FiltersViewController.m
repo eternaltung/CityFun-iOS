@@ -44,7 +44,7 @@
     // Do any additional setup after loading the view from its nib.
     
     //定義navigation 左右按鈕 同時設定callback function
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(onCancelButton)];
+    //self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(onCancelButton)];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Apply" style:UIBarButtonItemStylePlain target:self action:@selector(onApplyButton)];
     
@@ -55,8 +55,8 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"ExpandCell" bundle:nil] forCellReuseIdentifier:@"ExpandCell"];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.selectedDistance = [defaults objectForKey:@"filtersSelectedDistance"];
-    self.selectedGPSMethod = [defaults objectForKey:@"filtersSelectedGPSMethod"];
+    self.selectedDistance = [defaults objectForKey:@"filtersDistance"];
+    self.selectedGPSMethod = [defaults objectForKey:@"filtersGPSMethod"];
 
     
     if (!self.selectedDistance) {
@@ -73,10 +73,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     switch (section) {
         case SECTION_DISTANCE:
-            if (self.distanceExpanded)  return 5;
+            if (self.distanceExpanded)  return self.distances.count;
             return 1;
         case SECTION_GPS:
-            if (self.gpsExpanded)  return 3;
+            if (self.gpsExpanded)  return self.gpsMethods.count;
             return 1;
         default:
             return 0;
@@ -123,7 +123,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"selected section: %ld, row: %ld", (long)indexPath.section, (long)indexPath.row);
     if (indexPath.section == SECTION_DISTANCE)
     {
         if (!self.distanceExpanded) {
@@ -154,8 +153,6 @@
 
 - (void)checkBoxCell:(CheckBoxCell *)cell didUpdateValue:(BOOL)value {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    
-    NSLog(@"indexPath.section = %ld", indexPath.section);
     
     if (indexPath.section == SECTION_DISTANCE)
     {
@@ -214,24 +211,18 @@
     return filters;
 }
 
-//cancel button的call back function
-- (void)onCancelButton{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 //Apply button的call back function
 - (void)onApplyButton{
-    
     [self.delegate filtersViewController:self didChangeFilters:self.filters];
     [self saveFilters];
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
+    [self.navigationController popViewControllerAnimated:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"MapFilterChange" object:nil];
 }
 
 - (void)saveFilters {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:self.selectedDistance forKey:@"filtersSelectedDistance"];
-    [defaults setObject:self.selectedGPSMethod forKey:@"filtersSelectedGPSMethod"];
+    [defaults setObject:self.selectedDistance forKey:@"filtersDistance"];
+    [defaults setObject:self.selectedGPSMethod forKey:@"filtersGPSMethod"];
     
     [defaults synchronize];
 }
@@ -260,17 +251,16 @@
 
 - (void)initArrays {
     self.distances = @[
-                       @{@"name" : @"200 meter", @"value" : @200},
+                       @{@"name" : @"300 meter", @"value" : @300},
                        @{@"name" : @"500 meter", @"value" : @500},
-                       @{@"name" : @"1000 meter", @"value" : @1000},
-                       @{@"name" : @"1500 meter", @"value" : @1500},
-                       @{@"name" : @"2000 meter", @"value" : @2000}
+                       @{@"name" : @"800 meter", @"value" : @800},
+                       @{@"name" : @"1000 meter", @"value" : @1000}
                        ];
     
     self.gpsMethods = @[
-                         @{@"name" : @"Plane", @"value" : @0},
-                         @{@"name" : @"3D", @"value" : @1},
-                         @{@"name" : @"Google Earth", @"value" : @2}
+                         @{@"name" : @"Normal", @"value" : @0},
+                         @{@"name" : @"Satellite", @"value" : @1},
+                         @{@"name" : @"Terrain", @"value" : @2}
                          ];
 }
 

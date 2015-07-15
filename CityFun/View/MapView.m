@@ -11,9 +11,12 @@
 #import "AttractionsModel.h"
 #import <MBProgressHUD.h>
 #import "UIImage+Resize.h"
+#import "FiltersViewController.h"
+#import "AppDelegate.h"
 
 @interface MapView () <CLLocationManagerDelegate, GMSMapViewDelegate>
 @property (strong, nonatomic) NSMutableArray *attractions;
+@property (strong, nonatomic) NSMutableArray *markers;
 @property (strong, nonatomic) IBOutlet UIView *MapView;
 @property (strong, nonatomic) GMSMapView *map;
 @property (nonatomic, strong) CLLocationManager *locationManager;
@@ -27,17 +30,29 @@
     [super viewDidLoad];
     
     self.attractions = [NSMutableArray new];
+    self.markers = [NSMutableArray new];
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     [self.locationManager requestAlwaysAuthorization];
     [self.locationManager startUpdatingLocation];
     
     self.panoView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 330, 150)];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(MapFilterChange) name:@"MapFilterChange" object:nil];
+}
+
+//invoke when filter changed
+- (void)MapFilterChange
+{
+    self.attractions = [NSMutableArray new];
+    self.markers = [NSMutableArray new];
+    [self.map clear];
+    [self setMap];
 }
 
 //location update
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     self.userLocation = [locations lastObject];
+    [AppDelegate setUserLocation:self.userLocation];
     [manager stopUpdatingLocation];
     [self fetchData];
 }
@@ -58,18 +73,33 @@
 
 - (void)setMap
 {
+    //get filter distance
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int distance = [defaults objectForKey:@"filtersDistance"] == nil ? 500 : [[[defaults objectForKey:@"filtersDistance"] valueForKey:@"value"] intValue];
+    
     //add google map
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:self.userLocation.coordinate.latitude longitude:self.userLocation.coordinate.longitude zoom:14];
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:self.userLocation.coordinate.latitude longitude:self.userLocation.coordinate.longitude zoom:15];
     self.map = [GMSMapView mapWithFrame:self.MapView.bounds camera:camera];
     self.map.myLocationEnabled = YES;
     self.map.settings.myLocationButton = YES;
     self.map.settings.compassButton = YES;
     self.map.delegate = self;
+    switch ([[[defaults objectForKey:@"filtersGPSMethod"] valueForKey:@"value"] intValue]) {
+        case 1:
+            self.map.mapType = kGMSTypeSatellite;
+            break;
+        case 2:
+            self.map.mapType = kGMSTypeTerrain;
+            break;
+        default:
+            self.map.mapType = kGMSTypeNormal;
+            break;
+    }
     
     //draw circle on the map
-    GMSCircle *circle = [GMSCircle circleWithPosition:self.userLocation.coordinate radius:900];
+    GMSCircle *circle = [GMSCircle circleWithPosition:self.userLocation.coordinate radius:distance];
     circle.map = self.map;
-    circle.fillColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.2];
+    circle.fillColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.1];
     circle.strokeColor = [UIColor redColor];
     [self.MapView addSubview:self.map];
     
@@ -77,7 +107,7 @@
     for (AttractionsModel *data in [AttractionsModel getAttractions])
     {
         CLLocationDistance meters = [self.userLocation distanceFromLocation:[[CLLocation alloc] initWithLatitude:data.latitude longitude:data.longitude]];
-        if (meters < 900)
+        if (meters < distance)
         {
             [self.attractions addObject:data];
         }
@@ -94,6 +124,7 @@
         marker.icon = [UIImage image:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:data.file]]] resize:CGSizeMake(30, 30)];
         marker.snippet = data.xbody;
         marker.map = self.map;
+        [self.markers addObject:marker];
     }
     [self.delegate MapView:YES];
 }

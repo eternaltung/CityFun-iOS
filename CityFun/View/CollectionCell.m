@@ -8,6 +8,7 @@
 
 #import "CollectionCell.h"
 #import <UIImageView+AFNetworking.h>
+#import <POP.h>
 
 @interface CollectionCell()
 @property (weak, nonatomic) IBOutlet UIImageView *PlaceImg;
@@ -38,6 +39,35 @@
     self.PlaceImg.image = nil;
     [self.PlaceImg setImageWithURL:[NSURL URLWithString:self.attraction.file]];
     self.PlaceTitle.text = self.attraction.stitle;
+}
+
+- (void)setHighlighted:(BOOL)highlighted
+{
+    /*POPSpringAnimation *animation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+        //animation.toValue = [NSValue valueWithCGPoint:CGPointMake(1.2, 1.2)];
+        //animation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.9, 0.9)];
+    animation.springBounciness = 10;
+        animation.velocity = @(1000);
+        [self pop_addAnimation:animation forKey:@"springAnimation"];*/
+    /*POPSpringAnimation *shake = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerPositionX];
+    shake.springBounciness = 20;
+    shake.velocity = @(3000);
+    [self pop_addAnimation:shake forKey:@"shake"];*/
+    if (self.highlighted)
+    {
+        POPBasicAnimation *scaleAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+        scaleAnimation.duration = 0.1;
+        scaleAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.95, 0.95)];
+        [self pop_addAnimation:scaleAnimation forKey:@"scaleAnimation"];
+    }
+    else
+    {
+        POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+        scaleAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(1, 1)];
+        scaleAnimation.velocity = [NSValue valueWithCGPoint:CGPointMake(2, 2)];
+        scaleAnimation.springBounciness = 20.f;
+        [self pop_addAnimation:scaleAnimation forKey:@"scaleAnimation"];
+    }
 }
 
 @end

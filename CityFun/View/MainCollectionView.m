@@ -9,6 +9,9 @@
 #import "MainCollectionView.h"
 #import "AttractionsModel.h"
 #import "CollectionCell.h"
+#import <CoreLocation/CoreLocation.h>
+#import "AppDelegate.h"
+#import <POP.h>
 
 @interface MainCollectionView () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -26,9 +29,34 @@ NSString *reuseID = @"Cell";
     
     UINib *nib = [UINib nibWithNibName:@"CollectionCell" bundle:nil];
     [self.collectionView registerNib:nib forCellWithReuseIdentifier:reuseID];
+    self.attractions = [NSMutableArray new];
+    [self filterData];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(MapFilterChange) name:@"MapFilterChange" object:nil];
+}
+
+- (void)MapFilterChange
+{
+    self.attractions = [NSMutableArray new];
+    [self filterData];
+
+}
+
+- (void)filterData
+{
+    //get filter distance
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int distance = [defaults objectForKey:@"filtersDistance"] == nil ? 500 : [[[defaults objectForKey:@"filtersDistance"] valueForKey:@"value"] intValue];
     
-    self.attractions = [NSMutableArray arrayWithArray:[AttractionsModel getAttractions]];
-    
+    //filter distance
+    for (AttractionsModel *data in [AttractionsModel getAttractions])
+    {
+        CLLocationDistance meters = [[AppDelegate getUserLocation] distanceFromLocation:[[CLLocation alloc] initWithLatitude:data.latitude longitude:data.longitude]];
+        if (meters < distance)
+        {
+            [self.attractions addObject:data];
+        }
+    }
+    [self.collectionView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,7 +94,7 @@ NSString *reuseID = @"Cell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"select");
+    
 }
 
 /*

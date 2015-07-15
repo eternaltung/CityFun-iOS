@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-CityFun-pop.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-CityFun.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>06C03F3519DB1B9FEF5C9A31</key>
+		<key>29F959D52AD3758DE7ACF159</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1490AE27CEBBDFE19473426B</key>
+		<key>3C6012B3720423461CB614E6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5161F67BB921B7EB8323AB97</key>
+		<key>D4A7DD6BAB66D9D9D213D554</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>597B8A1063395A1046BFAABA</key>
+		<key>EE59EB15FEB839E8A2E7F946</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F0F84BBD2AD74B6211E4934F</key>
+		<key>F3F7C75F4ED4E4EA82A3B741</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F5B89A67286B7CC0D811F840</key>
 		<dict>
 			<key>primary</key>
 			<true/>

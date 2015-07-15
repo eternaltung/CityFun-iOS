@@ -12,6 +12,8 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "MainCollectionView.h"
 #import "MapView.h"
+#import "FiltersViewController.h"
+#import <POP.h>
 
 @interface MainController () <CLLocationManagerDelegate, MapViewDelegate, UISearchBarDelegate>
 @property (strong, nonatomic) NSMutableArray *attractions;
@@ -48,7 +50,8 @@
 
 - (void)settingTap
 {
-    
+    FiltersViewController *filterView = [[FiltersViewController alloc] initWithNibName:@"FiltersViewController" bundle:nil];
+    [self.navigationController pushViewController:filterView animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

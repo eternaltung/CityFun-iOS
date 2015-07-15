@@ -6,5 +6,6 @@ pod 'JSONModel'
 pod 'MBProgressHUD'
 pod 'GoogleMaps'
 pod 'SVPullToRefresh'
+pod 'pop'
 end
 
