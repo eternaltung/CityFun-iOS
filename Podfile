@@ -5,5 +5,6 @@ pod 'AFNetworking'
 pod 'JSONModel'
 pod 'MBProgressHUD'
 pod 'GoogleMaps'
+pod 'SVPullToRefresh'
 end
 

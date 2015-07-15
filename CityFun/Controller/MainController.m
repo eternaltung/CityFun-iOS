@@ -10,86 +10,74 @@
 #import <MBProgressHUD.h>
 #import "AttractionsModel.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "MainCollectionView.h"
+#import "MapView.h"
 
-@interface MainController () <CLLocationManagerDelegate>
+@interface MainController () <CLLocationManagerDelegate, MapViewDelegate, UISearchBarDelegate>
 @property (strong, nonatomic) NSMutableArray *attractions;
-@property (weak, nonatomic) IBOutlet UIView *MapView;
-@property (strong, nonatomic) GMSMapView *map;
-@property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, strong) CLLocation *userLocation;
+@property (weak, nonatomic) IBOutlet UIView *MainView;
+@property (nonatomic, strong) MainCollectionView *collectionView;
+@property (nonatomic, strong) MapView *mapView;
+@property (nonatomic, strong) UISearchBar *searchbar;
 @end
 
 @implementation MainController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    self.attractions = [NSMutableArray new];
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    [self.locationManager requestAlwaysAuthorization];
-    [self.locationManager startUpdatingLocation];
-    
-    [self fetchData];
+    [self addNavigationBarUI];
+    self.collectionView = [[MainCollectionView alloc] initWithNibName:@"MainCollectionView" bundle:nil];
+    self.mapView = [[MapView alloc] initWithNibName:@"MapView" bundle:nil];
+    self.mapView.delegate = self;
+    [self displayView:self.mapView];
 }
 
-//location update
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
-    self.userLocation = [locations lastObject];
-    [manager stopUpdatingLocation];
-    [self fetchData];
-}
-
-- (void)fetchData
+- (void)addNavigationBarUI
 {
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&rid=36847f3f-deff-4183-a5bb-800737591de5"]];
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
-     {
-         if (connectionError == nil)
-         {
-             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-             [AttractionsModel setCurrentData:[AttractionsModel arrayOfModelsFromDictionaries:dict[@"result"][@"results"]]];
-             [self setMap];
-         }
-     }];
+    self.searchbar = [[UISearchBar alloc] init];
+    [self.searchbar setPlaceholder:@"search"];
+    self.searchbar.text = @"";
+    self.searchbar.delegate = self;
+    self.navigationItem.titleView = self.searchbar;
+    
+    UIBarButtonItem *settingButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"setting"] style:UIBarButtonItemStylePlain target:self action:@selector(settingTap)];
+    self.navigationItem.leftBarButtonItem = settingButton;
 }
 
-- (void)setMap
+- (void)settingTap
 {
-    //add google map
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:self.userLocation.coordinate.latitude longitude:self.userLocation.coordinate.longitude zoom:14];
-    self.map = [GMSMapView mapWithFrame:self.MapView.bounds camera:camera];
-    self.map.myLocationEnabled = YES;
-    self.map.settings.myLocationButton = YES;
-    self.map.settings.compassButton = YES;
-    [self.MapView addSubview:self.map];
     
-    //filter distance
-    for (AttractionsModel *data in [AttractionsModel getAttractions])
-    {
-        CLLocationDistance meters = [self.userLocation distanceFromLocation:[[CLLocation alloc] initWithLatitude:data.latitude longitude:data.longitude]];
-        if (meters < 900)
-        {
-            [self.attractions addObject:data];
-        }
-    }
-    
-    // create a marker
-    for (AttractionsModel *data in self.attractions)
-    {
-        GMSMarker *marker = [[GMSMarker alloc] init];
-        marker.position = CLLocationCoordinate2DMake(data.latitude, data.longitude);
-        marker.title = data.stitle;
-        marker.appearAnimation = kGMSMarkerAnimationPop;
-        marker.snippet = data.xbody;
-        marker.map = self.map;
-    }
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated
+}
+
+- (IBAction)tabPress:(UIButton *)sender
+{
+    if ([sender.titleLabel.text  isEqual:@"List"])
+    {       //switch to list view
+        [self displayView:self.collectionView];
+    }
+    else if ([sender.titleLabel.text isEqualToString:@"Map"])
+    {       //switch to map view
+        [self displayView:self.mapView];
+    }
+}
+
+- (void)displayView:(UIViewController*)viewController
+{
+    viewController.view.frame = self.MainView.bounds;
+    [self.MainView addSubview:viewController.view];
+    [viewController didMoveToParentViewController:self];
+}
+
+- (void)MapView:(BOOL)didLoad
+{
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 /*

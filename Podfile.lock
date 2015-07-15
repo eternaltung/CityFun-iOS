@@ -23,17 +23,20 @@ PODS:
   - GoogleMaps (1.10.1)
   - JSONModel (1.1.0)
   - MBProgressHUD (0.9.1)
+  - SVPullToRefresh (0.4.1)
 
 DEPENDENCIES:
   - AFNetworking
   - GoogleMaps
   - JSONModel
   - MBProgressHUD
+  - SVPullToRefresh
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   GoogleMaps: ebf08677f181d9c2dcdbd1721d206f02beccc9b1
   JSONModel: ec77e9865236a7a09d9cf7668df6b4b328d9ec1d
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
 
 COCOAPODS: 0.37.2

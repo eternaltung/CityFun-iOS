@@ -16,21 +16,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t6m-x0-JI3">
-                                <rect key="frame" x="0.0" y="671" width="414" height="65"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t6m-x0-JI3">
+                                <rect key="frame" x="0.0" y="681" width="414" height="55"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9h-ge-ErM">
+                                        <rect key="frame" x="108" y="9" width="46" height="30"/>
+                                        <state key="normal" title="List">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tabPress:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8Ui-XV-zsT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijq-eo-8db">
+                                        <rect key="frame" x="197" y="9" width="76" height="30"/>
+                                        <state key="normal" title="Favorite">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSu-uU-ZEs">
+                                        <rect key="frame" x="8" y="9" width="46" height="30"/>
+                                        <state key="normal" title="Map">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tabPress:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Oyq-am-aDR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="CN6-5M-e1y"/>
+                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XCR-N5-C8C">
-                                <rect key="frame" x="0.0" y="64" width="414" height="608"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XCR-N5-C8C">
+                                <rect key="frame" x="0.0" y="64" width="414" height="617"/>
                                 <color key="backgroundColor" red="0.98779446670000004" green="1" blue="0.66471219280000005" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="t6m-x0-JI3" secondAttribute="bottom" id="6my-8y-DgA"/>
+                            <constraint firstItem="t6m-x0-JI3" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Cfd-Z4-dGA"/>
+                            <constraint firstItem="t6m-x0-JI3" firstAttribute="top" secondItem="XCR-N5-C8C" secondAttribute="bottom" id="LOK-n8-xcF"/>
+                            <constraint firstAttribute="trailing" secondItem="XCR-N5-C8C" secondAttribute="trailing" id="UM0-jB-FPn"/>
+                            <constraint firstItem="XCR-N5-C8C" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Vp6-6P-nde"/>
+                            <constraint firstItem="t6m-x0-JI3" firstAttribute="top" secondItem="XCR-N5-C8C" secondAttribute="bottom" id="Wcn-Tr-wmU"/>
+                            <constraint firstAttribute="trailing" secondItem="t6m-x0-JI3" secondAttribute="trailing" id="olL-3B-vAM"/>
+                            <constraint firstItem="XCR-N5-C8C" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="tac-iN-NEY"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="LOK-n8-xcF"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="8ZH-Oh-CgL"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="MapView" destination="XCR-N5-C8C" id="ZRk-L6-3a0"/>
+                        <outlet property="MainView" destination="XCR-N5-C8C" id="sJ5-WH-EXk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
