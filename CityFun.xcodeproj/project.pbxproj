@@ -10,6 +10,17 @@
 		D94AF3B31B53A5E9000B4862 /* AttractionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D94AF3B21B53A5E9000B4862 /* AttractionsModel.m */; };
 		D94AF3B71B53C428000B4862 /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = D94AF3B51B53C428000B4862 /* MainController.m */; };
 		D94AF3BA1B53D126000B4862 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94AF3B91B53D126000B4862 /* CoreLocation.framework */; };
+		D965F3F41B56040900A91259 /* CMFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D965F3EF1B56040900A91259 /* CMFViewController.m */; };
+		D965F3F51B56040900A91259 /* CMFViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D965F3F01B56040900A91259 /* CMFViewController.xib */; };
+		D965F3F61B56040900A91259 /* FiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D965F3F21B56040900A91259 /* FiltersViewController.m */; };
+		D965F3F71B56040900A91259 /* FiltersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D965F3F31B56040900A91259 /* FiltersViewController.xib */; };
+		D965F3FA1B56041500A91259 /* UIImageView+NSAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D965F3F91B56041500A91259 /* UIImageView+NSAdditions.m */; };
+		D965F4011B56042500A91259 /* CheckBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D965F3FC1B56042500A91259 /* CheckBoxCell.m */; };
+		D965F4021B56042500A91259 /* CheckBoxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D965F3FD1B56042500A91259 /* CheckBoxCell.xib */; };
+		D965F4031B56042500A91259 /* CMFGalleryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D965F3FF1B56042500A91259 /* CMFGalleryCell.m */; };
+		D965F4041B56042500A91259 /* CMFGalleryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D965F4001B56042500A91259 /* CMFGalleryCell.xib */; };
+		D965F4081B56043100A91259 /* ExpandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D965F4061B56043100A91259 /* ExpandCell.m */; };
+		D965F4091B56043100A91259 /* ExpandCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D965F4071B56043100A91259 /* ExpandCell.xib */; };
 		D9A8DAEE1B53A49000D5A9A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A8DAED1B53A49000D5A9A3 /* main.m */; };
 		D9A8DAF11B53A49000D5A9A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A8DAF01B53A49000D5A9A3 /* AppDelegate.m */; };
 		D9A8DAF71B53A49000D5A9A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9A8DAF51B53A49000D5A9A3 /* Main.storyboard */; };
@@ -22,7 +33,7 @@
 		D9C239501B54BB2800C1453A /* MapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9C2394E1B54BB2800C1453A /* MapView.xib */; };
 		D9C239541B54EAA600C1453A /* CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C239521B54EAA600C1453A /* CollectionCell.m */; };
 		D9C239551B54EAA600C1453A /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9C239531B54EAA600C1453A /* CollectionCell.xib */; };
-		D9C2395C1B5508E800C1453A /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C2395B1B5508E800C1453A /* UIImage+Resize.m */; };
+		D9C239601B56018F00C1453A /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C2395F1B56018F00C1453A /* UIImage+Resize.m */; };
 		E788A24ACDDC812A29F1F530 /* libPods-CityFun.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA44D39B1DEA39A133F5B3C8 /* libPods-CityFun.a */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +55,23 @@
 		D94AF3B41B53C428000B4862 /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		D94AF3B51B53C428000B4862 /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
 		D94AF3B91B53D126000B4862 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D965F3EE1B56040900A91259 /* CMFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMFViewController.h; sourceTree = "<group>"; };
+		D965F3EF1B56040900A91259 /* CMFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMFViewController.m; sourceTree = "<group>"; };
+		D965F3F01B56040900A91259 /* CMFViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMFViewController.xib; sourceTree = "<group>"; };
+		D965F3F11B56040900A91259 /* FiltersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiltersViewController.h; sourceTree = "<group>"; };
+		D965F3F21B56040900A91259 /* FiltersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiltersViewController.m; sourceTree = "<group>"; };
+		D965F3F31B56040900A91259 /* FiltersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FiltersViewController.xib; sourceTree = "<group>"; };
+		D965F3F81B56041500A91259 /* UIImageView+NSAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+NSAdditions.h"; sourceTree = "<group>"; };
+		D965F3F91B56041500A91259 /* UIImageView+NSAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+NSAdditions.m"; sourceTree = "<group>"; };
+		D965F3FB1B56042500A91259 /* CheckBoxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBoxCell.h; sourceTree = "<group>"; };
+		D965F3FC1B56042500A91259 /* CheckBoxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckBoxCell.m; sourceTree = "<group>"; };
+		D965F3FD1B56042500A91259 /* CheckBoxCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckBoxCell.xib; sourceTree = "<group>"; };
+		D965F3FE1B56042500A91259 /* CMFGalleryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMFGalleryCell.h; sourceTree = "<group>"; };
+		D965F3FF1B56042500A91259 /* CMFGalleryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMFGalleryCell.m; sourceTree = "<group>"; };
+		D965F4001B56042500A91259 /* CMFGalleryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMFGalleryCell.xib; sourceTree = "<group>"; };
+		D965F4051B56043100A91259 /* ExpandCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandCell.h; sourceTree = "<group>"; };
+		D965F4061B56043100A91259 /* ExpandCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandCell.m; sourceTree = "<group>"; };
+		D965F4071B56043100A91259 /* ExpandCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandCell.xib; sourceTree = "<group>"; };
 		D9A8DAE81B53A49000D5A9A3 /* CityFun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityFun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9A8DAEC1B53A49000D5A9A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9A8DAED1B53A49000D5A9A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -64,8 +92,8 @@
 		D9C239511B54EAA600C1453A /* CollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionCell.h; sourceTree = "<group>"; };
 		D9C239521B54EAA600C1453A /* CollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCell.m; sourceTree = "<group>"; };
 		D9C239531B54EAA600C1453A /* CollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionCell.xib; sourceTree = "<group>"; };
-		D9C2395A1B5508E800C1453A /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "../../../../UIImage+Resize.h"; sourceTree = "<group>"; };
-		D9C2395B1B5508E800C1453A /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "../../../../UIImage+Resize.m"; sourceTree = "<group>"; };
+		D9C2395E1B56018F00C1453A /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		D9C2395F1B56018F00C1453A /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		D9E3D501074F726192434ABB /* Pods-CityFun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CityFun.release.xcconfig"; path = "Pods/Target Support Files/Pods-CityFun/Pods-CityFun.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +129,12 @@
 		D94AF3AE1B53A56A000B4862 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D965F3EE1B56040900A91259 /* CMFViewController.h */,
+				D965F3EF1B56040900A91259 /* CMFViewController.m */,
+				D965F3F01B56040900A91259 /* CMFViewController.xib */,
+				D965F3F11B56040900A91259 /* FiltersViewController.h */,
+				D965F3F21B56040900A91259 /* FiltersViewController.m */,
+				D965F3F31B56040900A91259 /* FiltersViewController.xib */,
 				D94AF3B41B53C428000B4862 /* MainController.h */,
 				D94AF3B51B53C428000B4862 /* MainController.m */,
 			);
@@ -119,6 +153,15 @@
 		D94AF3B01B53A572000B4862 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D965F4051B56043100A91259 /* ExpandCell.h */,
+				D965F4061B56043100A91259 /* ExpandCell.m */,
+				D965F4071B56043100A91259 /* ExpandCell.xib */,
+				D965F3FB1B56042500A91259 /* CheckBoxCell.h */,
+				D965F3FC1B56042500A91259 /* CheckBoxCell.m */,
+				D965F3FD1B56042500A91259 /* CheckBoxCell.xib */,
+				D965F3FE1B56042500A91259 /* CMFGalleryCell.h */,
+				D965F3FF1B56042500A91259 /* CMFGalleryCell.m */,
+				D965F4001B56042500A91259 /* CMFGalleryCell.xib */,
 				D9C239471B54B0A800C1453A /* MainCollectionView.h */,
 				D9C239481B54B0A800C1453A /* MainCollectionView.m */,
 				D9C239491B54B0A800C1453A /* MainCollectionView.xib */,
@@ -155,7 +198,7 @@
 		D9A8DAEA1B53A49000D5A9A3 /* CityFun */ = {
 			isa = PBXGroup;
 			children = (
-				D9C239561B55085700C1453A /* Helper */,
+				D9C2395D1B56014A00C1453A /* Helper */,
 				D94AF3AF1B53A572000B4862 /* Model */,
 				D94AF3B01B53A572000B4862 /* View */,
 				D94AF3AE1B53A56A000B4862 /* Controller */,
@@ -195,11 +238,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D9C239561B55085700C1453A /* Helper */ = {
+		D9C2395D1B56014A00C1453A /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				D9C2395A1B5508E800C1453A /* UIImage+Resize.h */,
-				D9C2395B1B5508E800C1453A /* UIImage+Resize.m */,
+				D965F3F81B56041500A91259 /* UIImageView+NSAdditions.h */,
+				D965F3F91B56041500A91259 /* UIImageView+NSAdditions.m */,
+				D9C2395E1B56018F00C1453A /* UIImage+Resize.h */,
+				D9C2395F1B56018F00C1453A /* UIImage+Resize.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -296,10 +341,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9A8DAF71B53A49000D5A9A3 /* Main.storyboard in Resources */,
+				D965F4041B56042500A91259 /* CMFGalleryCell.xib in Resources */,
 				D9A8DAFC1B53A49000D5A9A3 /* LaunchScreen.xib in Resources */,
+				D965F3F71B56040900A91259 /* FiltersViewController.xib in Resources */,
 				D9A8DAF91B53A49000D5A9A3 /* Images.xcassets in Resources */,
+				D965F4021B56042500A91259 /* CheckBoxCell.xib in Resources */,
 				D9C239551B54EAA600C1453A /* CollectionCell.xib in Resources */,
 				D9C2394B1B54B0A800C1453A /* MainCollectionView.xib in Resources */,
+				D965F3F51B56040900A91259 /* CMFViewController.xib in Resources */,
+				D965F4091B56043100A91259 /* ExpandCell.xib in Resources */,
 				D9C239501B54BB2800C1453A /* MapView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,13 +402,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9C2394A1B54B0A800C1453A /* MainCollectionView.m in Sources */,
-				D9C2395C1B5508E800C1453A /* UIImage+Resize.m in Sources */,
+				D965F3F41B56040900A91259 /* CMFViewController.m in Sources */,
+				D9C239601B56018F00C1453A /* UIImage+Resize.m in Sources */,
+				D965F4081B56043100A91259 /* ExpandCell.m in Sources */,
 				D9C2394F1B54BB2800C1453A /* MapView.m in Sources */,
+				D965F4011B56042500A91259 /* CheckBoxCell.m in Sources */,
 				D9A8DAF11B53A49000D5A9A3 /* AppDelegate.m in Sources */,
 				D94AF3B31B53A5E9000B4862 /* AttractionsModel.m in Sources */,
 				D9C239541B54EAA600C1453A /* CollectionCell.m in Sources */,
+				D965F4031B56042500A91259 /* CMFGalleryCell.m in Sources */,
 				D94AF3B71B53C428000B4862 /* MainController.m in Sources */,
+				D965F3F61B56040900A91259 /* FiltersViewController.m in Sources */,
 				D9A8DAEE1B53A49000D5A9A3 /* main.m in Sources */,
+				D965F3FA1B56041500A91259 /* UIImageView+NSAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
