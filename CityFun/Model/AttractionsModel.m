@@ -31,6 +31,20 @@ static NSMutableArray *currentData = nil;
     return currentData;
 }
 
++ (NSArray*)getAttractionsByIds:(NSArray *)attractionIDs{
+    
+    NSMutableArray *attractions = [[NSMutableArray alloc] init];
+    //find attraction data in all acctractions
+    for (id attrId in attractionIDs){
+        for (AttractionsModel *obj in currentData) {
+            if (obj._id == [attrId integerValue]) {
+                [attractions addObject:obj];
+            }
+        }
+    }
+    return attractions;
+}
+
 + (void)setCurrentData:(NSArray*)attractions{
     currentData = [NSMutableArray arrayWithArray:attractions];
 }
