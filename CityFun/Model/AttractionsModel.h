@@ -22,6 +22,7 @@
 @property (strong, nonatomic) NSString *file;
 
 +(NSArray*)getAttractions;
++(NSArray*)getAttractionsByIds:(NSArray *)attractionIDs;
 +(void)setCurrentData:(NSArray*)attractions;
 
 @end
