@@ -37,7 +37,7 @@ static NSMutableArray *currentData = nil;
     //find attraction data in all acctractions
     for (id attrId in attractionIDs){
         for (AttractionsModel *obj in currentData) {
-            if (obj._id == [attrId integerValue]) {
+            if (obj._id == [attrId intValue]) {
                 [attractions addObject:obj];
             }
         }

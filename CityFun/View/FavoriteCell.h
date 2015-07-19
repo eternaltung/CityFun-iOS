@@ -2,15 +2,14 @@
 //  FavoriteCell.h
 //  CityFun
 //
-//  Created by Dan Weng on 7/17/15.
+//  Created by Shih-Ming Tung on 7/19/15.
 //  Copyright (c) 2015 Shih-Ming. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "AttractionsModel.h"
 
 @interface FavoriteCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *backgroundImg;
-@property (weak, nonatomic) IBOutlet UIView *coverView;
-@property (weak, nonatomic) IBOutlet UILabel *attractionLabel;
-
+@property (strong, nonatomic) AttractionsModel *place;
+- (void)setUIData;
 @end

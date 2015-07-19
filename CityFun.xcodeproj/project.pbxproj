@@ -27,6 +27,10 @@
 		D9A8DAF91B53A49000D5A9A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9A8DAF81B53A49000D5A9A3 /* Images.xcassets */; };
 		D9A8DAFC1B53A49000D5A9A3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9A8DAFA1B53A49000D5A9A3 /* LaunchScreen.xib */; };
 		D9A8DB081B53A49000D5A9A3 /* CityFunTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A8DB071B53A49000D5A9A3 /* CityFunTests.m */; };
+		D9B20B2D1B5B6A7A0031A3F5 /* FavoriteTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B20B2B1B5B6A7A0031A3F5 /* FavoriteTableView.m */; };
+		D9B20B2E1B5B6A7A0031A3F5 /* FavoriteTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9B20B2C1B5B6A7A0031A3F5 /* FavoriteTableView.xib */; };
+		D9B20B351B5B779B0031A3F5 /* FavoriteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B20B331B5B779B0031A3F5 /* FavoriteCell.m */; };
+		D9B20B361B5B779B0031A3F5 /* FavoriteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9B20B341B5B779B0031A3F5 /* FavoriteCell.xib */; };
 		D9C2394A1B54B0A800C1453A /* MainCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C239481B54B0A800C1453A /* MainCollectionView.m */; };
 		D9C2394B1B54B0A800C1453A /* MainCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9C239491B54B0A800C1453A /* MainCollectionView.xib */; };
 		D9C2394F1B54BB2800C1453A /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C2394D1B54BB2800C1453A /* MapView.m */; };
@@ -83,6 +87,12 @@
 		D9A8DB011B53A49000D5A9A3 /* CityFunTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityFunTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9A8DB061B53A49000D5A9A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9A8DB071B53A49000D5A9A3 /* CityFunTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityFunTests.m; sourceTree = "<group>"; };
+		D9B20B2A1B5B6A7A0031A3F5 /* FavoriteTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteTableView.h; sourceTree = "<group>"; };
+		D9B20B2B1B5B6A7A0031A3F5 /* FavoriteTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteTableView.m; sourceTree = "<group>"; };
+		D9B20B2C1B5B6A7A0031A3F5 /* FavoriteTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteTableView.xib; sourceTree = "<group>"; };
+		D9B20B321B5B779B0031A3F5 /* FavoriteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteCell.h; sourceTree = "<group>"; };
+		D9B20B331B5B779B0031A3F5 /* FavoriteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteCell.m; sourceTree = "<group>"; };
+		D9B20B341B5B779B0031A3F5 /* FavoriteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteCell.xib; sourceTree = "<group>"; };
 		D9C239471B54B0A800C1453A /* MainCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCollectionView.h; sourceTree = "<group>"; };
 		D9C239481B54B0A800C1453A /* MainCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCollectionView.m; sourceTree = "<group>"; };
 		D9C239491B54B0A800C1453A /* MainCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainCollectionView.xib; sourceTree = "<group>"; };
@@ -137,6 +147,9 @@
 				D965F3F31B56040900A91259 /* FiltersViewController.xib */,
 				D94AF3B41B53C428000B4862 /* MainController.h */,
 				D94AF3B51B53C428000B4862 /* MainController.m */,
+				D9B20B2A1B5B6A7A0031A3F5 /* FavoriteTableView.h */,
+				D9B20B2B1B5B6A7A0031A3F5 /* FavoriteTableView.m */,
+				D9B20B2C1B5B6A7A0031A3F5 /* FavoriteTableView.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -171,6 +184,9 @@
 				D9C239511B54EAA600C1453A /* CollectionCell.h */,
 				D9C239521B54EAA600C1453A /* CollectionCell.m */,
 				D9C239531B54EAA600C1453A /* CollectionCell.xib */,
+				D9B20B321B5B779B0031A3F5 /* FavoriteCell.h */,
+				D9B20B331B5B779B0031A3F5 /* FavoriteCell.m */,
+				D9B20B341B5B779B0031A3F5 /* FavoriteCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -345,12 +361,14 @@
 				D9A8DAFC1B53A49000D5A9A3 /* LaunchScreen.xib in Resources */,
 				D965F3F71B56040900A91259 /* FiltersViewController.xib in Resources */,
 				D9A8DAF91B53A49000D5A9A3 /* Images.xcassets in Resources */,
+				D9B20B2E1B5B6A7A0031A3F5 /* FavoriteTableView.xib in Resources */,
 				D965F4021B56042500A91259 /* CheckBoxCell.xib in Resources */,
 				D9C239551B54EAA600C1453A /* CollectionCell.xib in Resources */,
 				D9C2394B1B54B0A800C1453A /* MainCollectionView.xib in Resources */,
 				D965F3F51B56040900A91259 /* CMFViewController.xib in Resources */,
 				D965F4091B56043100A91259 /* ExpandCell.xib in Resources */,
 				D9C239501B54BB2800C1453A /* MapView.xib in Resources */,
+				D9B20B361B5B779B0031A3F5 /* FavoriteCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +419,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9B20B351B5B779B0031A3F5 /* FavoriteCell.m in Sources */,
 				D9C2394A1B54B0A800C1453A /* MainCollectionView.m in Sources */,
 				D965F3F41B56040900A91259 /* CMFViewController.m in Sources */,
 				D9C239601B56018F00C1453A /* UIImage+Resize.m in Sources */,
@@ -414,6 +433,7 @@
 				D94AF3B71B53C428000B4862 /* MainController.m in Sources */,
 				D965F3F61B56040900A91259 /* FiltersViewController.m in Sources */,
 				D9A8DAEE1B53A49000D5A9A3 /* main.m in Sources */,
+				D9B20B2D1B5B6A7A0031A3F5 /* FavoriteTableView.m in Sources */,
 				D965F3FA1B56041500A91259 /* UIImageView+NSAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

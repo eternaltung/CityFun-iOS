@@ -14,12 +14,15 @@
 #import "MapView.h"
 #import "FiltersViewController.h"
 #import <POP.h>
+//#import "FavoriteViewController.h"
+#import "FavoriteTableView.h"
 
 @interface MainController () <CLLocationManagerDelegate, MapViewDelegate, UISearchBarDelegate>
 @property (strong, nonatomic) NSMutableArray *attractions;
 @property (weak, nonatomic) IBOutlet UIView *MainView;
 @property (nonatomic, strong) MainCollectionView *collectionView;
 @property (nonatomic, strong) MapView *mapView;
+@property (nonatomic, strong) FavoriteTableView *favoriteView;
 @property (nonatomic, strong) UISearchBar *searchbar;
 @end
 
@@ -33,6 +36,8 @@
     self.collectionView = [[MainCollectionView alloc] initWithNibName:@"MainCollectionView" bundle:nil];
     self.mapView = [[MapView alloc] initWithNibName:@"MapView" bundle:nil];
     self.mapView.delegate = self;
+    self.favoriteView = [[FavoriteTableView alloc] initWithNibName:@"FavoriteTableView" bundle:nil];
+    
     [self displayView:self.mapView];
 }
 
@@ -68,6 +73,11 @@
     else if ([sender.titleLabel.text isEqualToString:@"Map"])
     {       //switch to map view
         [self displayView:self.mapView];
+    }
+    else if ([sender.titleLabel.text isEqualToString:@"Favorite"])
+    {       //switch to favorite view
+        [self displayView:self.favoriteView];
+        //[self.navigationController pushViewController:self.favoriteView animated:YES];
     }
 }
 
