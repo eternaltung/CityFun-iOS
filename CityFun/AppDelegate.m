@@ -10,6 +10,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import <CoreLocation/CoreLocation.h>
 #import "DetailViewController.h"
+#import "UserModel.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:85.0f/255.0f green:172.0f/255.0f blue:238.0f/255.0f alpha:1.0f]];
     [GMSServices provideAPIKey:@""];
+    [UserModel setUserClient:@"" key:@""];
     
     /*
     // for testing

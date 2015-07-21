@@ -14,7 +14,7 @@
 #import "MapView.h"
 #import "FiltersViewController.h"
 #import <POP.h>
-//#import "FavoriteViewController.h"
+#import "DetailViewController.h"
 #import "FavoriteTableView.h"
 
 @interface MainController () <CLLocationManagerDelegate, MapViewDelegate, UISearchBarDelegate>
@@ -91,6 +91,13 @@
 - (void)MapView:(BOOL)didLoad
 {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+- (void)PushView:(AttractionsModel *)attraction
+{
+    DetailViewController *detailViewController = [[DetailViewController alloc] initWithCollectionViewLayout:[PSUICollectionViewFlowLayout new]];
+    detailViewController.attraction = attraction;
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 /*

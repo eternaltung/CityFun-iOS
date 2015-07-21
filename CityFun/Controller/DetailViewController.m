@@ -41,8 +41,8 @@
     [self.request callAPIMethodWithGET:@"flickr.photos.search" arguments:[NSDictionary dictionaryWithObjectsAndKeys:@"10", @"per_page", @"台北101", @"text", @"interestingness-desc", @"sort", @"", @"tags", nil]];
     
     DetailView *detailView = [[[NSBundle mainBundle] loadNibNamed:@"DetailView" owner:self options:nil] objectAtIndex:0];
-    //[detailView setFrame:CGRectMake(0, 0, detailView.frame.size.width, detailView.frame.size.height)];
-    [detailView setFrame:CGRectMake(0, 0, self.view.frame.size.width, 60)];
+    [detailView setFrame:self.view.bounds];
+    //[detailView setFrame:CGRectMake(0, 0, self.view.frame.size.width, 60)];
     [self.view addSubview:detailView];
     
     [detailView.tapGestureRecognizer addTarget:self action:@selector(onOpenTap:)];

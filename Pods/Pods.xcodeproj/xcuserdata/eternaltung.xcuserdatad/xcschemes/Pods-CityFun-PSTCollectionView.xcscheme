@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "67688ED54E95DD7794431FDC"
-               BuildableName = "libPods-CityFun-SVPullToRefresh.a"
-               BlueprintName = "Pods-CityFun-SVPullToRefresh"
+               BlueprintIdentifier = "0F18539FF0418B3B3C0C13AE"
+               BuildableName = "libPods-CityFun-PSTCollectionView.a"
+               BlueprintName = "Pods-CityFun-PSTCollectionView"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

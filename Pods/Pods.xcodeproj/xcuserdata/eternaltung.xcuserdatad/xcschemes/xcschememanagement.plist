@@ -9,6 +9,21 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-CityFun-BDBOAuth1Manager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-CityFun-FXBlurView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-CityFun-FontAwesome-iOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-CityFun-JSONModel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -19,7 +34,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-CityFun-PSTCollectionView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-CityFun-SVPullToRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-CityFun-objectiveflickr.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,32 +62,57 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>29F959D52AD3758DE7ACF159</key>
+		<key>04199577B88C9E9ADC39A2B6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3C6012B3720423461CB614E6</key>
+		<key>0F18539FF0418B3B3C0C13AE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D4A7DD6BAB66D9D9D213D554</key>
+		<key>0FF2A9D4AB0B763ABFB0AFE2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EE59EB15FEB839E8A2E7F946</key>
+		<key>1AD5E976ECD9781885776886</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F3F7C75F4ED4E4EA82A3B741</key>
+		<key>279A583D3322924E606F6069</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F5B89A67286B7CC0D811F840</key>
+		<key>2C85CCA38F9B79C20770533B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>65900A0686A0BC9E2144C010</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>67688ED54E95DD7794431FDC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>69D609BDA45A22F690B5B691</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD6D9491A5FFE5F58C7DFD74</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F19F60ED28FE86DF750FCA00</key>
 		<dict>
 			<key>primary</key>
 			<true/>

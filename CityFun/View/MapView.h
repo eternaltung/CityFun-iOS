@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AttractionsModel.h"
 
 @class MapView;
 
 @protocol MapViewDelegate <NSObject>
 @optional
 - (void)MapView:(BOOL)didLoad;
+- (void)PushView:(AttractionsModel*)attraction;
 @end
 
 @interface MapView : UIViewController

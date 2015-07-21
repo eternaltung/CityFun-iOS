@@ -29,7 +29,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.95608038651315785" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.95608038651315785" alpha="0.65000000000000002" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="KQs-bn-KaO"/>
                         </constraints>

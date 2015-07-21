@@ -30,7 +30,7 @@ NSString *favID = @"FavCell";
 
 - (void)fetchData
 {
-    NSArray *ids = [[NSArray alloc] initWithObjects:@"1",@"2", nil];
+    NSArray *ids = [[NSArray alloc] initWithObjects:@"74",@"5", nil];
     self.attractions = [NSMutableArray arrayWithArray:[AttractionsModel getAttractionsByIds:ids]];
     [self.tableView reloadData];
 }

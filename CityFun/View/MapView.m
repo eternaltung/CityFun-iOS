@@ -13,6 +13,7 @@
 #import "UIImage+Resize.h"
 #import "FiltersViewController.h"
 #import "AppDelegate.h"
+#import "DetailViewController.h"
 
 @interface MapView () <CLLocationManagerDelegate, GMSMapViewDelegate>
 @property (strong, nonatomic) NSMutableArray *attractions;
@@ -66,6 +67,7 @@
          {
              NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
              [AttractionsModel setCurrentData:[AttractionsModel arrayOfModelsFromDictionaries:dict[@"result"][@"results"]]];
+             
              [self setMap];
          }
      }];
@@ -144,7 +146,7 @@
 //tap marker callout windows
 - (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker
 {
-    AttractionsModel *attraction = marker.userData;
+    [self.delegate PushView:marker.userData];
 }
 
 //remove street view
