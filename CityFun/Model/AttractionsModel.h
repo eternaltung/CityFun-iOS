@@ -20,6 +20,7 @@
 @property (assign, nonatomic) float latitude;
 @property (strong, nonatomic) NSString *xpostDate;
 @property (strong, nonatomic) NSString *file;
+@property (strong, nonatomic) NSString *info;
 
 +(NSArray*)getAttractions;
 +(NSArray*)getAttractionsByIds:(NSArray *)attractionIDs;

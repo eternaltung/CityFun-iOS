@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import <CoreLocation/CoreLocation.h>
+#import "DetailViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +21,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:85.0f/255.0f green:172.0f/255.0f blue:238.0f/255.0f alpha:1.0f]];
     [GMSServices provideAPIKey:@""];
+    
+    /*
+    // for testing
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    //DetailViewController *detailViewController = [[DetailViewController alloc] init];
+    DetailViewController *detailViewController = [[DetailViewController alloc] initWithCollectionViewLayout:[PSUICollectionViewFlowLayout new]];
+    self.window.rootViewController = detailViewController;
+    [self.window makeKeyAndVisible];
+    */
+
     return YES;
 }
 
