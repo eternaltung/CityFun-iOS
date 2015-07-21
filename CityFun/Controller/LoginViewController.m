@@ -28,14 +28,13 @@
 
 - (IBAction)loginPress:(UIButton *)sender
 {
-    [self navigateToMainView];
-    /*switch (sender.tag)
+    switch (sender.tag)
     {
         case 1:
         {
             [[UserModel getUserClient] loginWithProvider:@"facebook" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
                 if (error == nil)
-                    [self navigateToMainView];
+                    [self navigateToMainView:user.userId];
             }];
         }
             break;
@@ -43,7 +42,7 @@
         {
             [[UserModel getUserClient] loginWithProvider:@"google" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
                 if (error == nil)
-                    [self navigateToMainView];
+                    [self navigateToMainView:user.userId];
             }];
         }
             break;
@@ -51,18 +50,22 @@
         {
             [[UserModel getUserClient] loginWithProvider:@"twitter" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
                 if (error == nil)
-                    [self navigateToMainView];
+                    [self navigateToMainView:user.userId];
             }];
         }
             break;
         default:
             break;
-    }*/
+    }
     
 }
 
-- (void)navigateToMainView
+- (void)navigateToMainView:(NSString*)uID
 {
+    //save user
+    [UserModel saveUser:uID];
+    
+    //navigation
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     MainController *mainView = [sb instantiateViewControllerWithIdentifier:@"MainView"];
     [self.navigationController pushViewController:mainView animated:YES];

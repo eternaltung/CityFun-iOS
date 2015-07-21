@@ -11,6 +11,7 @@
 #import "DetailView.h"
 #import "FXBlurView.h"
 #import <ObjectiveFlickr.h>
+#import "UserModel.h"
 
 @interface DetailViewController () <OFFlickrAPIRequestDelegate>
 
@@ -19,7 +20,8 @@
 
 @property (nonatomic, assign) NSInteger cellCount;
 @property (nonatomic, strong) NSArray *photosDict;
-
+@property (assign, nonatomic) BOOL isFavorite;
+@property (strong, nonatomic) UserModel *favoriteData;
 @end
 
 @implementation DetailViewController
@@ -49,6 +51,49 @@
     detailView.attraction = self.attraction;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self addFavoriteButton];
+}
+
+- (void)addFavoriteButton
+{
+    [UserModel getFavorites:^(NSMutableArray *favorites)
+    {
+        self.isFavorite = NO;
+        for (UserModel *user in favorites)
+        {
+            if (user.placeID == self.attraction._id)
+            {
+                self.isFavorite = YES;
+                self.favoriteData = user;
+                break;
+            }
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:self.isFavorite ? @"favorite" : @"unfavorite"] style:UIBarButtonItemStylePlain target:self action:@selector(FavoriteTap)];
+        });
+    }];
+}
+
+- (void)FavoriteTap
+{
+    if (self.isFavorite)
+    {    //do unfavorite
+        self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"unfavorite"];
+        [UserModel updateFavorites:0 dataID:self.favoriteData.id isadd:NO complete:^(UserModel *user) {
+            self.favoriteData = nil;
+        }];
+    }
+    else
+    {   //favorite
+        self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"favorite"];
+        [UserModel updateFavorites:self.attraction._id dataID:@"" isadd:YES complete:^(UserModel *user) {
+            self.favoriteData = user;
+        }];
+    }
+    self.isFavorite = !self.isFavorite;
+}
 
 - (void)viewWillDisappear:(BOOL)animated
 {

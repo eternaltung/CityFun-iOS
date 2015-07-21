@@ -11,6 +11,12 @@
 
 @interface UserModel : NSObject
 
+@property (strong, nonatomic) NSString *id;
+@property (assign, nonatomic) int placeID;
+
 +(void)setUserClient:(NSString*)url key:(NSString*)key;
 +(MSClient*)getUserClient;
++(void)getFavorites:(void (^)(NSMutableArray *favorites))complete;
++(void)updateFavorites:(int)attractionID dataID:(NSString*)dataID isadd:(BOOL)isadd complete:(void (^)(UserModel *user))complete;
++(void)saveUser:(NSString*)userID;
 @end

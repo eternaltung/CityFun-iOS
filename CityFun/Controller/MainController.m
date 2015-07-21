@@ -17,7 +17,7 @@
 #import "DetailViewController.h"
 #import "FavoriteTableView.h"
 
-@interface MainController () <CLLocationManagerDelegate, MapViewDelegate, UISearchBarDelegate>
+@interface MainController () <CLLocationManagerDelegate, MapViewDelegate, UISearchBarDelegate, MainCollectionViewDelegate>
 @property (strong, nonatomic) NSMutableArray *attractions;
 @property (weak, nonatomic) IBOutlet UIView *MainView;
 @property (nonatomic, strong) MainCollectionView *collectionView;
@@ -34,6 +34,7 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self addNavigationBarUI];
     self.collectionView = [[MainCollectionView alloc] initWithNibName:@"MainCollectionView" bundle:nil];
+    self.collectionView.delegate = self;
     self.mapView = [[MapView alloc] initWithNibName:@"MapView" bundle:nil];
     self.mapView.delegate = self;
     self.favoriteView = [[FavoriteTableView alloc] initWithNibName:@"FavoriteTableView" bundle:nil];
@@ -94,6 +95,16 @@
 }
 
 - (void)PushView:(AttractionsModel *)attraction
+{
+    [self pushToDetail:attraction];
+}
+
+- (void)CollectionPushView:(AttractionsModel *)attraction
+{
+    [self pushToDetail:attraction];
+}
+
+- (void)pushToDetail:(AttractionsModel *)attraction
 {
     DetailViewController *detailViewController = [[DetailViewController alloc] initWithCollectionViewLayout:[PSUICollectionViewFlowLayout new]];
     detailViewController.attraction = attraction;

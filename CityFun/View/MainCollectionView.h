@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AttractionsModel.h"
+
+@class MainCollectionView;
+
+@protocol MainCollectionViewDelegate <NSObject>
+@optional
+- (void)CollectionPushView:(AttractionsModel*)attraction;
+@end
 
 @interface MainCollectionView : UIViewController
-
+@property (weak, nonatomic) id<MainCollectionViewDelegate> delegate;
 @end

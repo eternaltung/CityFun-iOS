@@ -9,6 +9,7 @@
 #import "FavoriteTableView.h"
 #import "AttractionsModel.h"
 #import "FavoriteCell.h"
+#import "UserModel.h"
 
 @interface FavoriteTableView ()
 @property (strong, nonatomic) NSMutableArray *attractions;
@@ -25,14 +26,25 @@ NSString *favID = @"FavCell";
     [self.tableView registerNib:[UINib nibWithNibName:@"FavoriteCell" bundle:nil] forCellReuseIdentifier:favID];
     self.tableView.estimatedRowHeight = 180;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
     [self fetchData];
 }
 
 - (void)fetchData
 {
-    NSArray *ids = [[NSArray alloc] initWithObjects:@"74",@"5", nil];
-    self.attractions = [NSMutableArray arrayWithArray:[AttractionsModel getAttractionsByIds:ids]];
-    [self.tableView reloadData];
+    //NSArray *ids = [[NSArray alloc] initWithObjects:@"74",@"5", nil];
+    [UserModel getFavorites:^(NSMutableArray *favorites) {
+        NSMutableArray *ids = [NSMutableArray new];
+        for (UserModel *user in favorites)
+        {
+            [ids addObject:@(user.placeID)];
+        }
+        self.attractions = [NSMutableArray arrayWithArray:[AttractionsModel getAttractionsByIds:ids]];
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
