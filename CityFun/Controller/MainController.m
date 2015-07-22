@@ -17,7 +17,7 @@
 #import "DetailViewController.h"
 #import "FavoriteTableView.h"
 
-@interface MainController () <CLLocationManagerDelegate, MapViewDelegate, UISearchBarDelegate, MainCollectionViewDelegate>
+@interface MainController () <CLLocationManagerDelegate, MapViewDelegate, UISearchBarDelegate, MainCollectionViewDelegate, FavoriteTableViewDelegate>
 @property (strong, nonatomic) NSMutableArray *attractions;
 @property (weak, nonatomic) IBOutlet UIView *MainView;
 @property (nonatomic, strong) MainCollectionView *collectionView;
@@ -38,6 +38,7 @@
     self.mapView = [[MapView alloc] initWithNibName:@"MapView" bundle:nil];
     self.mapView.delegate = self;
     self.favoriteView = [[FavoriteTableView alloc] initWithNibName:@"FavoriteTableView" bundle:nil];
+    self.favoriteView.delegate = self;
     
     [self displayView:self.mapView];
 }
@@ -77,8 +78,8 @@
     }
     else if ([sender.titleLabel.text isEqualToString:@"Favorite"])
     {       //switch to favorite view
+        [self.favoriteView fetchData];
         [self displayView:self.favoriteView];
-        //[self.navigationController pushViewController:self.favoriteView animated:YES];
     }
 }
 
@@ -100,6 +101,11 @@
 }
 
 - (void)CollectionPushView:(AttractionsModel *)attraction
+{
+    [self pushToDetail:attraction];
+}
+
+- (void)FavoritePushView:(AttractionsModel *)attraction
 {
     [self pushToDetail:attraction];
 }

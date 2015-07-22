@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AttractionsModel.h"
+
+@class FavoriteTableView;
+
+@protocol FavoriteTableViewDelegate <NSObject>
+@optional
+- (void)FavoritePushView:(AttractionsModel*)attraction;
+@end
 
 @interface FavoriteTableView : UITableViewController
-
+- (void)fetchData;
+@property (weak, nonatomic) id<FavoriteTableViewDelegate> delegate;
 @end

@@ -39,6 +39,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-CityFun-SSKeychain.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-CityFun-SVPullToRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,57 +67,62 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>04199577B88C9E9ADC39A2B6</key>
+		<key>00C78E60C9B80623ADAD16ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0F18539FF0418B3B3C0C13AE</key>
+		<key>290F0D7F75F9FE2D5A1BD088</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0FF2A9D4AB0B763ABFB0AFE2</key>
+		<key>2F647783CCAF89B030FCDBD2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1AD5E976ECD9781885776886</key>
+		<key>34FF087B2A5A555A3865A423</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>279A583D3322924E606F6069</key>
+		<key>5A885899347831601FDA58E6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2C85CCA38F9B79C20770533B</key>
+		<key>6757744046E68DB9AA77B128</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>65900A0686A0BC9E2144C010</key>
+		<key>7DDC688C799F6C587CA1C65F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>67688ED54E95DD7794431FDC</key>
+		<key>A6A28B9E2E3699EE23559133</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>69D609BDA45A22F690B5B691</key>
+		<key>B553C4AD8A58F4B893A33251</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DD6D9491A5FFE5F58C7DFD74</key>
+		<key>B5A6A6C25A4C2DD87D85A1BA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F19F60ED28FE86DF750FCA00</key>
+		<key>C69B43EFF6C4CCA07135B513</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F0D42655FC6C2A52F5C55402</key>
 		<dict>
 			<key>primary</key>
 			<true/>

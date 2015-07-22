@@ -31,6 +31,7 @@ PODS:
   - objectiveflickr (2.0.4)
   - pop (1.0.7)
   - PSTCollectionView (1.2.3)
+  - SSKeychain (1.2.3)
   - SVPullToRefresh (0.4.1)
 
 DEPENDENCIES:
@@ -44,6 +45,7 @@ DEPENDENCIES:
   - objectiveflickr
   - pop
   - PSTCollectionView
+  - SSKeychain
   - SVPullToRefresh
 
 SPEC CHECKSUMS:
@@ -57,6 +59,7 @@ SPEC CHECKSUMS:
   objectiveflickr: aed169dae1eb5a5550ca78f7efd7ccde2e4c26e5
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   PSTCollectionView: 6749df92885353521f55279a7ce2b293762e2be4
+  SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
 
 COCOAPODS: 0.37.2

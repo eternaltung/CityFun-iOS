@@ -12,5 +12,6 @@ pod 'pop'
 pod 'objectiveflickr'
 pod 'PSTCollectionView'
 pod 'FXBlurView'
+pod 'SSKeychain'
 end
 

@@ -9,6 +9,9 @@
 #import "FiltersViewController.h"
 #import "CheckBoxCell.h"
 #import "ExpandCell.h"
+#import <SSKeychain.h>
+#import "LoginViewController.h"
+#import "UserModel.h"
 
 @interface FiltersViewController ()<UITableViewDataSource, UITableViewDelegate, CheckBoxCellDelegate>
 
@@ -78,6 +81,8 @@
         case SECTION_GPS:
             if (self.gpsExpanded)  return self.gpsMethods.count;
             return 1;
+        case 2:
+            return 1;
         default:
             return 0;
     }
@@ -102,6 +107,12 @@
             cell.delegate = self;
             return cell;
         }
+    }
+    else if (indexPath.section == 2)
+    {
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"signout"];
+        cell.textLabel.text = @"登出";
+        return cell;
     }
     else
     {
@@ -147,7 +158,14 @@
             [self checkBoxCell:cell didUpdateValue:YES];
         }
     }
-
+    else if (indexPath.section == 2)
+    {   //sign out
+        NSString *uid = [UserModel getUserClient].currentUser.userId;
+        [SSKeychain deletePasswordForService:@"cityfun" account:uid];
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        LoginViewController *loginView = [sb instantiateViewControllerWithIdentifier:@"LoginView"];
+        [self.navigationController showDetailViewController:loginView sender:self];
+    }
 }
 
 
@@ -196,8 +214,6 @@
 //新增filter的query string
 - (NSDictionary *)filters {
     NSMutableDictionary *filters = [NSMutableDictionary dictionary];
-    
-    
     if (self.selectedDistance &&
         ![self.selectedDistance isEqualToDictionary:self.distances[0]])  // don't set filter for "best match"
     {

@@ -52,7 +52,10 @@
 
 //location update
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
-    self.userLocation = [locations lastObject];
+    //self.userLocation = [locations lastObject];
+    
+    //demo use
+    self.userLocation = [[CLLocation alloc] initWithLatitude:25.032729 longitude:121.51827];
     [AppDelegate setUserLocation:self.userLocation];
     [manager stopUpdatingLocation];
     [self fetchData];

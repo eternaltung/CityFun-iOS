@@ -1,6 +1,6 @@
 #include "Pods-CityFun-MBProgressHUD.xcconfig"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/MBProgressHUD" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/BDBOAuth1Manager" "${PODS_ROOT}/Headers/Public/FXBlurView" "${PODS_ROOT}/Headers/Public/FontAwesome-iOS" "${PODS_ROOT}/Headers/Public/GoogleMaps" "${PODS_ROOT}/Headers/Public/JSONModel" "${PODS_ROOT}/Headers/Public/MBProgressHUD" "${PODS_ROOT}/Headers/Public/PSTCollectionView" "${PODS_ROOT}/Headers/Public/SVPullToRefresh" "${PODS_ROOT}/Headers/Public/objectiveflickr" "${PODS_ROOT}/Headers/Public/pop"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/MBProgressHUD" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/BDBOAuth1Manager" "${PODS_ROOT}/Headers/Public/FXBlurView" "${PODS_ROOT}/Headers/Public/FontAwesome-iOS" "${PODS_ROOT}/Headers/Public/GoogleMaps" "${PODS_ROOT}/Headers/Public/JSONModel" "${PODS_ROOT}/Headers/Public/MBProgressHUD" "${PODS_ROOT}/Headers/Public/PSTCollectionView" "${PODS_ROOT}/Headers/Public/SSKeychain" "${PODS_ROOT}/Headers/Public/SVPullToRefresh" "${PODS_ROOT}/Headers/Public/objectiveflickr" "${PODS_ROOT}/Headers/Public/pop"
 OTHER_LDFLAGS = ${PODS_CITYFUN_MBPROGRESSHUD_OTHER_LDFLAGS} -ObjC
 PODS_ROOT = ${SRCROOT}
 SKIP_INSTALL = YES

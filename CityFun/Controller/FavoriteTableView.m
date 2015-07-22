@@ -26,10 +26,6 @@ NSString *favID = @"FavCell";
     [self.tableView registerNib:[UINib nibWithNibName:@"FavoriteCell" bundle:nil] forCellReuseIdentifier:favID];
     self.tableView.estimatedRowHeight = 180;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
     [self fetchData];
 }
 
@@ -82,6 +78,10 @@ NSString *favID = @"FavCell";
     return 180;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.delegate FavoritePushView:self.attractions[indexPath.row]];
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -120,16 +120,7 @@ NSString *favID = @"FavCell";
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
-    
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-}
+
 */
 
 /*

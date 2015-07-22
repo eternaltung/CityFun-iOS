@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "MainController.h"
 #import "UserModel.h"
+#import <SSKeychain.h>
 
 @interface LoginViewController ()
 
@@ -18,7 +19,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    NSLog(@"%@",[SSKeychain allAccounts]);
+    NSString *userID = [[SSKeychain accountsForService:@"cityfun"] valueForKey:@"acct"];
+    if (userID) {
+        [UserModel getUserClient].currentUser = [[MSUser alloc] initWithUserId:userID];
+        [UserModel getUserClient].currentUser.mobileServiceAuthenticationToken = [SSKeychain passwordForService:@"cityfun" account:userID];
+        [self navigateToMainView:userID];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,6 +69,7 @@
 
 - (void)navigateToMainView:(NSString*)uID
 {
+    [SSKeychain setPassword:[UserModel getUserClient].currentUser.mobileServiceAuthenticationToken forService:@"cityfun" account:[UserModel getUserClient].currentUser.userId];
     //save user
     [UserModel saveUser:uID];
     
