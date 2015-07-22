@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -10,14 +10,8 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fW8-Wq-J7F">
-                    <rect key="frame" x="0.0" y="288" width="600" height="23.5"/>
-                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9c-mw-sjM">
-                    <rect key="frame" x="251" y="313" width="97" height="42"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9c-mw-sjM">
+                    <rect key="frame" x="289.5" y="289" width="20" height="22"/>
                     <state key="normal" image="ic_expand">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -26,15 +20,10 @@
             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstAttribute="centerX" secondItem="fW8-Wq-J7F" secondAttribute="centerX" id="66m-yS-a1p"/>
-                <constraint firstItem="G9c-mw-sjM" firstAttribute="centerX" secondItem="fW8-Wq-J7F" secondAttribute="centerX" id="VuK-gi-kZ0"/>
-                <constraint firstAttribute="centerY" secondItem="fW8-Wq-J7F" secondAttribute="centerY" id="VyO-wQ-X16"/>
-                <constraint firstItem="fW8-Wq-J7F" firstAttribute="leading" secondItem="Bd5-aN-Qgx" secondAttribute="leading" id="ZTt-Tq-GlU"/>
-                <constraint firstItem="G9c-mw-sjM" firstAttribute="top" secondItem="fW8-Wq-J7F" secondAttribute="bottom" constant="1" id="meU-Mm-l46"/>
-                <constraint firstAttribute="trailing" secondItem="fW8-Wq-J7F" secondAttribute="trailing" id="v6V-hK-QLc"/>
+                <constraint firstAttribute="centerY" secondItem="G9c-mw-sjM" secondAttribute="centerY" id="Dfl-pC-mYm"/>
+                <constraint firstAttribute="centerX" secondItem="G9c-mw-sjM" secondAttribute="centerX" id="LeJ-Ys-VRC"/>
             </constraints>
             <connections>
-                <outlet property="stitle" destination="fW8-Wq-J7F" id="Iex-FI-KGf"/>
                 <outlet property="tapGestureRecognizer" destination="pMi-GR-thJ" id="IQK-3K-lua"/>
                 <outletCollection property="gestureRecognizers" destination="pMi-GR-thJ" appends="YES" id="KLA-ad-YC4"/>
             </connections>

@@ -20,8 +20,6 @@
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) int currentIndex;
 
-@property (nonatomic, strong) NSMutableArray *imageArray;
-
 @property (nonatomic, assign) long arrayIndex;
 
 @end
@@ -37,10 +35,11 @@
     //[test fetchData];
     
     //self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(onFilterButton)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(onDismissButton)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Share" style:UIBarButtonItemStylePlain target:self action:@selector(onShareButton)];
     
 	// Do any additional setup after loading the view, typically from a nib.
-    [self initArray];
+    //[self initArray];
     [self setupCollectionView];
 }
 
@@ -131,7 +130,7 @@
         [self.imageArray addObject:data.file];
         //break;
     }
-    
+
     NSArray *array = [[NSArray alloc] initWithObjects:@"http://www.travel.taipei/d_upload_ttn/sceneadmin/pic/11000848.jpg",
                       @"http://www.travel.taipei/d_upload_ttn/sceneadmin/pic/11000340.jpg",
                       @"http://www.travel.taipei/d_upload_ttn/sceneadmin/pic/11000721.jpg",
@@ -173,6 +172,28 @@
                                             applicationActivities:nil];
     
     [self presentViewController:activityVC animated:YES completion:nil];
+}
+
+- (void)onDismissButton {
+    [self dismissViewControllerAnimated:NO completion:nil];
+}
+
+- (void)setCurrentIndexPath:(NSInteger)currentIndexPath {
+    _currentIndexPath = currentIndexPath;
+    [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(animatePickerTimer:) userInfo:nil repeats:NO];
+}
+
+-(void)animatePickerTimer:(NSTimer *)timer;
+{
+    [self performSelectorOnMainThread:@selector(animatePicker) withObject:nil waitUntilDone:NO];
+    
+    //Not sure if this is required, since the timer does not repeat
+    [timer invalidate];
+}
+
+-(void)animatePicker
+{
+    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:_currentIndexPath inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
 }
 
 @end

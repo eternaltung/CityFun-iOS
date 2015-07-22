@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *info;
 @property (weak, nonatomic) IBOutlet UILabel *stitle;
 @property (weak, nonatomic) IBOutlet UILabel *xbody;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @property (strong, nonatomic) AttractionsModel *attraction;
 
