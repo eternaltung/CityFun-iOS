@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "CMFViewController.h"
 #import "DetailCell.h"
 #import "DetailView.h"
 #import "FXBlurView.h"
@@ -22,6 +23,9 @@
 @property (nonatomic, strong) NSArray *photosDict;
 @property (assign, nonatomic) BOOL isFavorite;
 @property (strong, nonatomic) UserModel *favoriteData;
+
+@property (nonatomic, strong) CMFViewController *cmfViewController;
+
 @end
 
 @implementation DetailViewController
@@ -34,21 +38,25 @@
     [self.collectionView registerClass:[DetailCell class] forCellWithReuseIdentifier:@"DetailCell"];
     //[self.collectionView registerNib:[UINib nibWithNibName:@"DetailCell" bundle:nil] forCellWithReuseIdentifier:@"DetailCell"];
     
-    self.collectionView.backgroundColor = [UIColor blackColor];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
     
     self.context = [[OFFlickrAPIContext alloc] initWithAPIKey:@"a3909c74c682bb64b57837d96d4f1c7e" sharedSecret:@"0307d41420c1146e"];
     self.request = [[OFFlickrAPIRequest alloc] initWithAPIContext:self.context];
     [self.request setDelegate:self];
     //[self.request callAPIMethodWithGET:@"flickr.photos.getRecent" arguments:[NSDictionary dictionaryWithObjectsAndKeys:@"1", @"per_page", nil]];
-    [self.request callAPIMethodWithGET:@"flickr.photos.search" arguments:[NSDictionary dictionaryWithObjectsAndKeys:@"10", @"per_page", @"台北101", @"text", @"interestingness-desc", @"sort", @"", @"tags", nil]];
+    [self.request callAPIMethodWithGET:@"flickr.photos.search" arguments:[NSDictionary dictionaryWithObjectsAndKeys:@"30", @"per_page", self.attraction.stitle, @"text", @"interestingness-desc", @"sort", @"", @"tags", nil]];
     
     DetailView *detailView = [[[NSBundle mainBundle] loadNibNamed:@"DetailView" owner:self options:nil] objectAtIndex:0];
-    [detailView setFrame:self.view.bounds];
-    //[detailView setFrame:CGRectMake(0, 0, self.view.frame.size.width, 60)];
+    [detailView setFrame:CGRectMake(0, self.navigationController.navigationBar.frame.size.height + 15, self.view.frame.size.width, 30)];
     [self.view addSubview:detailView];
     
     [detailView.tapGestureRecognizer addTarget:self action:@selector(onOpenTap:)];
     detailView.attraction = self.attraction;
+    
+    self.title = self.attraction.stitle;
+    
+    self.cmfViewController = [[CMFViewController alloc] init];
+    self.cmfViewController.imageArray = [[NSMutableArray alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -126,6 +134,14 @@
         self.photosDict = [inResponseDictionary valueForKeyPath:@"photos.photo"];
         self.cellCount = self.photosDict.count;
         [self.collectionView reloadData];
+        
+        for (int i = 0; i < self.photosDict.count; i++) {
+            NSDictionary *photoDict = [self.photosDict objectAtIndex:i];
+            NSURL *photoURL = [self.context photoSourceURLFromDictionary:photoDict size:OFFlickrMediumSize];
+            //[self.cmfViewController.imageArray addObject:photoURL];
+            NSArray *array = [[NSArray alloc] initWithObjects:[photoURL absoluteString], nil];
+            [self.cmfViewController.imageArray addObjectsFromArray:array];
+        }
     }
 }
 
@@ -143,7 +159,7 @@
 
 - (PSUICollectionViewCell *)collectionView:(PSUICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSLog(@"%zd", self.cellCount);
+    //NSLog(@"%zd", self.cellCount);
     
     if (self.photosDict == nil || indexPath.row >= self.cellCount) {
         return nil;
@@ -157,9 +173,16 @@
     
     cell.photoURL = [self.context photoSourceURLFromDictionary:photoDict size:OFFlickrLargeSize];
 
-    NSLog(@"%@", cell.photoURL);
+    //NSLog(@"%@", cell.photoURL);
     
     return cell;
+}
+
+- (void)collectionView:(PSTCollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    //NSLog(@"%@", self.cmfViewController.imageArray);
+    self.cmfViewController.currentIndexPath = indexPath.row;
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.cmfViewController];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 #pragma mark - PSTCollectionViewDelegateFlowLayout methods
@@ -192,17 +215,28 @@
     [self.view addSubview:fxBlurView];
     
     DetailView *detailFullView = [[[NSBundle mainBundle] loadNibNamed:@"DetailFullView" owner:self options:nil] objectAtIndex:0];
-    [detailFullView setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    detailFullView.backgroundColor = [UIColor clearColor];
+    //detailFullView.tag = 16;
+    detailFullView.attraction = self.attraction;
+    [detailFullView setFrame:CGRectMake(0, self.navigationController.navigationBar.frame.size.height + 20, self.view.frame.size.width, self.view.frame.size.height)];
+    //detailFullView.backgroundColor = [UIColor clearColor];
+    detailFullView.backgroundColor = [UIColor whiteColor];
+    //detailFullView.backgroundColor = [UIColor colorWithRed:85.0f/255.0f green:172.0f/255.0f blue:238.0f/255.0f alpha:1.0f];
+    detailFullView.alpha = 0.8;
     
     UITapGestureRecognizer *closeTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onCloseTap:)];
     [detailFullView addGestureRecognizer:closeTapGestureRecognizer];
     
-    detailFullView.tag = 16;
     
-    detailFullView.attraction = self.attraction;
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:detailFullView.bounds];
+    [scrollView addSubview:detailFullView];
+    scrollView.contentSize = CGSizeMake(detailFullView.frame.size.width, detailFullView.frame.size.height);
+    NSLog(@"%f", detailFullView.bounds.size.height);
+    NSLog(@"%f", detailFullView.frame.size.height);
+    scrollView.scrollEnabled=YES;
     
-    [self.view addSubview:detailFullView];
+    scrollView.tag = 16;
+    
+    [self.view addSubview:scrollView];
 }
 
 - (void)onCloseTap:(UITapGestureRecognizer *)tapGestureRecognizer {

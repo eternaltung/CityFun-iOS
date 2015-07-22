@@ -7,6 +7,7 @@
 //
 
 #import "DetailFullView.h"
+#import <UIImageView+AFNetworking.h>
 
 @implementation DetailFullView
 
@@ -27,6 +28,19 @@
     self.info.text = attraction.info;
     self.stitle.text = attraction.stitle;
     self.xbody.text = attraction.xbody;
+    
+    NSURLRequest *imageRequest = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:self.attraction.file]];
+    [self.imageView setImageWithURLRequest:imageRequest placeholderImage:[UIImage imageNamed:@"avatarPlaceholder"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+            [UIView transitionWithView:self.imageView duration:0.3 options:UIViewAnimationOptionTransitionCrossDissolve
+                animations:^{
+                    self.imageView.image = image;
+                }
+                completion: nil];
+        }
+        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+            NSLog(@"%@", error);
+        }
+    ];
 }
 
 @end

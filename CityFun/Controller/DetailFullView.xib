@@ -11,56 +11,64 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vk4-51-JmA">
-                    <rect key="frame" x="8" y="8" width="200" height="200"/>
+                    <rect key="frame" x="8" y="8" width="584" height="200"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="GUg-mq-INQ"/>
-                        <constraint firstAttribute="width" constant="200" id="axU-Dz-oaV"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="stitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kul-BK-8qh">
-                    <rect key="frame" x="216" y="8" width="376" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="8" y="218" width="584" height="23.5"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPW-YD-9hk">
-                    <rect key="frame" x="216" y="37" width="376" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <rect key="frame" x="8" y="249" width="584" height="19.5"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xbody" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7x-Q1-aoj">
-                    <rect key="frame" x="216" y="66" width="376" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <rect key="frame" x="8" y="277" width="584" height="23.5"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="info" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LvV-HM-AJL">
-                    <rect key="frame" x="216" y="95" width="376" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <rect key="frame" x="8" y="308" width="584" height="23.5"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Kul-BK-8qh" firstAttribute="leading" secondItem="vk4-51-JmA" secondAttribute="trailing" constant="8" id="1we-qn-SUd"/>
-                <constraint firstAttribute="trailing" secondItem="tPW-YD-9hk" secondAttribute="trailing" constant="8" id="5Ph-z2-qAA"/>
-                <constraint firstItem="LvV-HM-AJL" firstAttribute="top" secondItem="h7x-Q1-aoj" secondAttribute="bottom" constant="8" id="6T6-Ts-n5Z"/>
-                <constraint firstItem="h7x-Q1-aoj" firstAttribute="leading" secondItem="vk4-51-JmA" secondAttribute="trailing" constant="8" id="JSc-xs-omT"/>
-                <constraint firstAttribute="trailing" secondItem="LvV-HM-AJL" secondAttribute="trailing" constant="8" id="R1E-tu-eIn"/>
-                <constraint firstItem="vk4-51-JmA" firstAttribute="leading" secondItem="Ua8-JS-ifC" secondAttribute="leading" constant="8" id="ebO-iq-gGm"/>
-                <constraint firstItem="h7x-Q1-aoj" firstAttribute="top" secondItem="tPW-YD-9hk" secondAttribute="bottom" constant="8" id="gzk-md-ziL"/>
-                <constraint firstAttribute="trailing" secondItem="h7x-Q1-aoj" secondAttribute="trailing" constant="8" id="hte-0P-3kQ"/>
-                <constraint firstItem="vk4-51-JmA" firstAttribute="top" secondItem="Ua8-JS-ifC" secondAttribute="top" constant="8" id="ikl-yj-d0R"/>
-                <constraint firstItem="LvV-HM-AJL" firstAttribute="leading" secondItem="vk4-51-JmA" secondAttribute="trailing" constant="8" id="pkA-j1-E7P"/>
-                <constraint firstItem="tPW-YD-9hk" firstAttribute="top" secondItem="Kul-BK-8qh" secondAttribute="bottom" constant="8" id="qWU-a6-zYh"/>
-                <constraint firstAttribute="trailing" secondItem="Kul-BK-8qh" secondAttribute="trailing" constant="8" id="vy8-kF-J2a"/>
-                <constraint firstItem="tPW-YD-9hk" firstAttribute="leading" secondItem="vk4-51-JmA" secondAttribute="trailing" constant="8" id="xnF-5V-IMu"/>
-                <constraint firstItem="Kul-BK-8qh" firstAttribute="top" secondItem="Ua8-JS-ifC" secondAttribute="top" constant="8" id="ypR-cR-EAf"/>
+                <constraint firstAttribute="trailing" secondItem="tPW-YD-9hk" secondAttribute="trailing" constant="8" id="9XN-7k-APG"/>
+                <constraint firstItem="Kul-BK-8qh" firstAttribute="leading" secondItem="Ua8-JS-ifC" secondAttribute="leading" constant="8" id="ITp-A9-IaH"/>
+                <constraint firstItem="tPW-YD-9hk" firstAttribute="top" secondItem="Kul-BK-8qh" secondAttribute="bottom" constant="8" id="JDZ-bq-hre"/>
+                <constraint firstItem="h7x-Q1-aoj" firstAttribute="top" secondItem="tPW-YD-9hk" secondAttribute="bottom" constant="8" id="RCs-PO-CQH"/>
+                <constraint firstItem="LvV-HM-AJL" firstAttribute="top" secondItem="h7x-Q1-aoj" secondAttribute="bottom" constant="8" id="Sg7-ql-yVR"/>
+                <constraint firstItem="tPW-YD-9hk" firstAttribute="leading" secondItem="Ua8-JS-ifC" secondAttribute="leading" constant="8" id="Tfb-te-huO"/>
+                <constraint firstAttribute="trailing" secondItem="Kul-BK-8qh" secondAttribute="trailing" constant="8" id="XRb-si-mTd"/>
+                <constraint firstItem="vk4-51-JmA" firstAttribute="top" secondItem="Ua8-JS-ifC" secondAttribute="top" constant="8" id="ang-g2-lw3"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LvV-HM-AJL" secondAttribute="bottom" constant="8" id="ioO-Mn-w7h"/>
+                <constraint firstItem="LvV-HM-AJL" firstAttribute="top" secondItem="tPW-YD-9hk" secondAttribute="bottom" constant="8" id="iu3-wO-buq"/>
+                <constraint firstItem="LvV-HM-AJL" firstAttribute="leading" secondItem="Ua8-JS-ifC" secondAttribute="leading" constant="8" id="lXp-en-wEX"/>
+                <constraint firstAttribute="trailing" secondItem="LvV-HM-AJL" secondAttribute="trailing" constant="8" id="liL-fo-31L"/>
+                <constraint firstAttribute="trailing" secondItem="vk4-51-JmA" secondAttribute="trailing" constant="8" id="m2K-jY-CQv"/>
+                <constraint firstItem="vk4-51-JmA" firstAttribute="leading" secondItem="Ua8-JS-ifC" secondAttribute="leading" constant="8" id="nGw-Al-98S"/>
+                <constraint firstItem="Kul-BK-8qh" firstAttribute="top" secondItem="vk4-51-JmA" secondAttribute="bottom" constant="10" id="qsu-qP-Cyb"/>
+                <constraint firstAttribute="trailing" secondItem="h7x-Q1-aoj" secondAttribute="trailing" constant="8" id="uBu-hM-yRJ"/>
+                <constraint firstItem="h7x-Q1-aoj" firstAttribute="leading" secondItem="Ua8-JS-ifC" secondAttribute="leading" constant="8" id="wwz-Or-tvk"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="iu3-wO-buq"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="address" destination="tPW-YD-9hk" id="fGf-D8-A6p"/>
+                <outlet property="imageView" destination="vk4-51-JmA" id="7hz-fe-bvX"/>
                 <outlet property="info" destination="LvV-HM-AJL" id="sX7-J6-cs9"/>
                 <outlet property="stitle" destination="Kul-BK-8qh" id="dIA-9r-Udx"/>
                 <outlet property="xbody" destination="h7x-Q1-aoj" id="X2n-Zm-kX0"/>

@@ -10,4 +10,7 @@
 
 @interface CMFViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
+@property (nonatomic, strong) NSMutableArray *imageArray;
+@property (nonatomic) NSInteger currentIndexPath;
+
 @end
